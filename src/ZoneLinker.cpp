@@ -6,6 +6,7 @@ ZoneLinker::ZoneLinker(std::string const& filePath)
 {
     m_loadedLinks.clear();
 
+    /** @todo throw Exception if loading file fails */
     std::ifstream linkFile(filePath);
     std::string line;
 

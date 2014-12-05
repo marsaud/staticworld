@@ -1,6 +1,7 @@
 #ifndef STATICWORLD_H
 #define STATICWORLD_H
 
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>

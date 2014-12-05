@@ -1,23 +1,5 @@
 #include "Position.h"
 
-/*Position::Position()
-{
-    x = 0;
-    y = 0;
-}
-
-Position::Position(signed int iX, signed int iY) :
-    x(iX),
-    y(iY)
-{
-
-}
-
-Position::~Position()
-{
-
-}*/
-
 Position& Position::operator+=(Movement const& mov)
 {
     x += mov.x;

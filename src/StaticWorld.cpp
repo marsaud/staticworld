@@ -40,34 +40,41 @@ void StaticWorld::m_loadArea(std::string const& key)
 
 void StaticWorld::m_bootWorld()
 {
-    std::ifstream bootFile(m_dir + "/" + m_scenario + "/" + StaticWorld::SCN_BOOT_FILE);
-    std::string line;
+    std::string bootFilePath = m_dir + "/" + m_scenario + "/" + StaticWorld::SCN_BOOT_FILE;
+    std::ifstream bootFile(bootFilePath.c_str());
 
-    /** @todo All here is to secure */
-
-    while(std::getline(bootFile, line))
+    if (!bootFile)
     {
-        /** @todo share */
-        if ('\r' == *(line.cend()-1))
-        {
-            line.erase(line.end()-1);
-        }
-
-        std::stringstream streamLine(line);
-        std::string word;
-
-        streamLine >> word;
-        if ("start" == word)
-        {
-            streamLine >> m_startArea;
-        }
-        else
-        {
-            /** @todo throw exception */
-        }
+        std::cerr << "Failed to load " << bootFilePath << std::endl;
     }
+    else
+    {
+        std::string line;
+        /** @todo All here is to secure */
+        while(std::getline(bootFile, line))
+        {
+            /** @todo share */
+            if ('\r' == *(line.cend()-1))
+            {
+                line.erase(line.end()-1);
+            }
 
-    bootFile.close();
+            std::stringstream streamLine(line);
+            std::string word;
+
+            streamLine >> word;
+            if ("start" == word)
+            {
+                streamLine >> m_startArea;
+            }
+            else
+            {
+                std::cerr << "No starting area found" << bootFilePath << std::endl;
+            }
+        }
+
+        bootFile.close();
+    }
 }
 
 std::string StaticWorld::getStartArea() const
