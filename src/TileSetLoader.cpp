@@ -18,7 +18,7 @@ bool TileSetLoader::load(std::string const& tileMapPath, TileSetLoader::TileSet 
 
     if (!tileFile)
     {
-        return false;
+        return false; /** @todo throw exception instead */
     }
     else
     {

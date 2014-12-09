@@ -23,9 +23,9 @@ void StaticArea::m_loadSet(std::string const& areaDir)
     delete zLoader;
 
     TileSetLoader* tLoader = new TileSetLoader;
-    for(ZoneSetLoader::ZoneSet::iterator yit = m_zoneSet.begin(); m_zoneSet.end() != yit; ++yit) /** @todo const_iterator ? */
+    for(ZoneSetLoader::ZoneSet::const_iterator yit = m_zoneSet.cbegin(); m_zoneSet.cend() != yit; ++yit)
     {
-        for(ZoneSetLoader::ZoneSetLine::iterator xit = yit->begin(); yit->end() != xit; ++xit)
+        for(ZoneSetLoader::ZoneSetLine::const_iterator xit = yit->cbegin(); yit->cend() != xit; ++xit)
         {
             TileSetLoader::TileSet tileSet;
             tLoader->load(areaDir + "/" + *xit + "." + TileSetLoader::TILEMAP_FILE_EXT, tileSet);
@@ -35,7 +35,7 @@ void StaticArea::m_loadSet(std::string const& areaDir)
     delete tLoader;
 }
 
-const ZoneSetLoader::ZoneSet& StaticArea::getZoneSet() const /** @todo const overload ? */
+const ZoneSetLoader::ZoneSet& StaticArea::getZoneSet() const
 {
     return m_zoneSet;
 }

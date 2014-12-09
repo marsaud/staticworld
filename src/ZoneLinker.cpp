@@ -10,6 +10,7 @@ ZoneLinker::ZoneLinker(std::string const& filePath)
     std::ifstream linkFile(filePath);
     std::string line;
 
+    /** @todo move this to a private function */
     while (std::getline(linkFile, line))
     {
         if ('\r' == *(line.cend()-1))

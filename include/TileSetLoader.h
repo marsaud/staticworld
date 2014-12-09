@@ -24,7 +24,10 @@ public:
     bool load(std::string const& tileMapPath, TileSetLoader::TileSet & tileSet) const;
 protected:
 private:
-    enum DataFileChar {CAVE = 'v', DIRT = 'd', FOREST = 'f', GRASS = 'g', HILL = 'h', MOUNT = 'm', WATER = 'w', LINE_BREAK = '\n'};
+    enum DataFileChar
+    {
+        CAVE = 'v', DIRT = 'd', FOREST = 'f', GRASS = 'g', HILL = 'h', MOUNT = 'm', WATER = 'w', LINE_BREAK = '\n'
+    };
 };
 
 #endif // TILESETLOADER_H
