@@ -21,6 +21,7 @@ public:
         ACTION_NONE, ACTION_ENTER_ZONE, ACTION_LIST_SIZE
     };
 
+    int m_number;
     Position m_tile;
     Position m_zone;
     std::string m_area;
@@ -30,7 +31,7 @@ public:
     template<class Archive>
     void serialize(Archive& ar, const unsigned int version)
     {
-        ar & m_tile & m_zone & m_area;
+        ar & m_number & m_tile & m_zone & m_area;
     }
 
 protected:
