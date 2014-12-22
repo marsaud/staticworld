@@ -16,7 +16,7 @@ public:
         TILE_NONE, TILE_CAVE, TILE_DIRT, TILE_FOREST, TILE_GRASS, TILE_HILL, TILE_MOUNT, TILE_WATER, TILE_PARTY, TILE_LIST_SIZE
     };
 
-    typedef std::vector<Tile> TileSetLine;
+    typedef std::vector<TileSetLoader::Tile> TileSetLine;
     typedef std::vector<TileSetLoader::TileSetLine> TileSet;
 
     static const std::string TILEMAP_FILE_EXT;
